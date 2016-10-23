@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="j2store" method="upgrade">
+	<name>CORREIOS Shipping</name>
+	<version>1.1.1</version>
+	<creationDate>Oct 2016</creationDate>
+	<author>maskitto</author>
+	<authorEmail>webmaster@alphahost.net.br</authorEmail>
+	<authorUrl>http://www.alphahost.net.br</authorUrl>
+	<copyright>2016 Airton Torres</copyright>
+	<license>GNU General Public License v2</license>
+	<description>PLG_J2STORE_SHIPPING_CORREIOS_DESC</description>
+
+	<scriptfile>script.shipping_correios.php</scriptfile>
+
+	<files>
+		<filename plugin="shipping_correios">shipping_correios.php</filename>
+		<filename>correiosv3.php</filename>
+		<filename>index.html</filename>
+		<folder>fields</folder>
+	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_j2store_shipping_correios.ini</language>
+		<language tag="en-GB">en-GB.plg_j2store_shipping_correios.sys.ini</language>
+		<language tag="pt-BR">pt-BR.plg_j2store_shipping_correios.ini</language>
+		<language tag="pt-BR">pt-BR.plg_j2store_shipping_correios.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="basic">
+				<field name="correios_username" type="text" size="50" default=""
+					label="J2STORE_WEB_TOOLS_USERNAME" description="J2STORE_WEB_TOOLS_USERNAME_DESC"  required="true" />
+				<field name="correios_password" type="text" size="50" default=""
+					label="J2STORE_WEB_TOOLS_PASSWORD" description="J2STORE_WEB_TOOLS_PASSWORD_DESC" required="true"  />
+				<field name="correios_postcode" type="text" size="50" default=""
+					label="J2STORE_CORREIOS_POSTCODE" description="J2STORE_CORREIOS_POSTCODE_DESC" required="true" />
+				<field name="domestic_services" type="list" multiple="multiple"
+					size="10" default="" label="J2STORE_CORREIOS_DOMESTIC_SERVICES"
+					description="J2STORE_CORREIOS_DOMESTIC_SERVICES_DESC">
+					<option value="40010">Sedex Sem Contrato (40010)</option>
+					<option value="40096">Sedex Com Contrato (40096)</option>
+					<option value="40436">Sedex Com Contrato (40436)</option>
+					<option value="81019">E-Sedex Com Contrato (81019)</option>
+					<option value="41106">PAC Sem Contrato (41106)</option>
+					<option value="41068">PAC Com Contrato (41068)</option>
+					<option value="40215">Sedex 10 (40215)</option>
+					<option value="40290">Sedex HOJE (40290)</option>
+					<option value="40045">Sedex a Cobrar (40045)</option>
+					<option value="41300">PAC GF (41300)</option>
+					<option value="10065">Carta Comercial (10065)</option>
+					<option value="10138">Carta Comercial Registrada (10138)</option>
+				</field>
+				<field name="correios_container" type="list" default="RECTANGULAR"
+					label="J2STORE_CORREIOS_PACKAGING_CONTAINER_TYPE" description="J2STORE_CORREIOS_PACKAGING_CONTAINER_TYPE_DESC">
+					<option value="1">J2STORE_CORREIOS_RECTANGULAR</option>
+					<option value="2">J2STORE_CORREIOS_NON_RECTANGULAR</option>
+					<option value="3">J2STORE_CORREIOS_VARIABLE</option>
+				</field>
+				<field name="correios_display_time" type="list" default="1"
+					label="J2STORE_CORREIOS_DISPLAY_TIME" description="J2STORE_CORREIOS_DISPLAY_TIME_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="correios_own_hand" type="radio" default="0"
+					label="J2STORE_CORREIOS_OWN_HAND" description="J2STORE_CORREIOS_OWN_HAND_DESC">
+					<option value="s">JYES</option>
+					<option value="n">JNO</option>
+				</field>
+				<field name="correios_delivery_note" type="radio" default="0"
+					   label="J2STORE_CORREIOS_DELIVERY_NOTE" description="J2STORE_CORREIOS_DELIVERY_NOTE_DESC">
+					<option value="s">JYES</option>
+					<option value="n">JNO</option>
+				</field>
+				<field name="correios_declared_value" type="radio" default="0"
+					   label="J2STORE_CORREIOS_DECLARED_VALUE" description="J2STORE_CORREIOS_DECLARED_VALUE_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="correios_allert_riscky_area" type="radio" default="1"
+					   label="J2STORE_CORREIOS_ALLERT_RISCKY_AREA" description="J2STORE_CORREIOS_ALLERT_RISCKY_AREA_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="correios_length" type="text" size="20" default="16"
+                                           label="J2STORE_CORREIOS_LENGTH" description="J2STORE_CORREIOS_LENGTH_DESC" required="true" />
+                                <field name="correios_width" type="text" size="20" default="11"
+                                           label="J2STORE_CORREIOS_WIDTH" description="J2STORE_CORREIOS_WIDTH_DESC" required="true" />
+                                <field name="correios_height" type="text" size="20" default="10"
+                                           label="J2STORE_CORREIOS_HEIGHT" description="J2STORE_CORREIOS_HEIGHT_DESC" required="true" />
+                                <field name="correios_min_purchase_value" type="text" size="20" default="0"
+                                           label="J2STORE_CORREIOS_MIN_PURCHASE_VALUE" description="J2STORE_CORREIOS_MIN_PURCHASE_VALUE_DESC" required="true" />
+                                <field name="correios_max_purchase_value" type="text" size="20" default="10000"
+                                           label="J2STORE_CORREIOS_MAX_PURCHASE_VALUE" description="J2STORE_CORREIOS_MAX_PURCHASE_VALUE_DESC" required="true" />
+                                <field name="correios_add_time" type="text" size="20" default=""
+                                           label="J2STORE_CORREIOS_ADD_TIME" description="J2STORE_CORREIOS_ADD_TIME_DESC" required="true" />
+                                <field name="correios_handling_percent" type="text" size="20" default=""
+                                           label="J2STORE_CORREIOS_HANDLING_PERCENT" description="J2STORE_CORREIOS_HANDLING_PERCENT_DESC" required="true" />
+                                <field name="correios_handling_fix" type="text" size="20" default=""
+                                           label="J2STORE_CORREIOS_HANDLING_FIX" description="J2STORE_CORREIOS_HANDLING_FIX_DESC" required="true" />
+				<field name="show_debug" type="list" default="0"
+					label="J2STORE_SHOW_DEBUG_MESSAGES" description="J2STORE_SHOW_DEBUG_MESSAGES_DESC">
+					<option value="0">J2STORE_NO</option>
+					<option value="1">J2STORE_YES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
